@@ -55,21 +55,6 @@
             font-size: 1.5em;
             margin: 10px 0;
         }
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border: 2px solid white;
-            background: transparent;
-            color: white;
-            font-size: 1.2em;
-            text-decoration: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: white;
-            color: #ff69b4;
-        }
         .section {
             padding: 50px 20px;
         }
@@ -83,19 +68,6 @@
             height: auto;
             border-radius: 10px;
         }
-        form input, form button {
-            display: block;
-            width: 80%;
-            margin: 10px auto;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-        }
-        form button {
-            background: #ff69b4;
-            color: white;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
@@ -103,8 +75,8 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#story">Our Story</a></li>
+            <li><a href="#wedding-details">Wedding Details</a></li>
             <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#rsvp">RSVP</a></li>
         </ul>
     </nav>
     
@@ -112,13 +84,20 @@
         <div class="hero">
             <h1>ANNA & RYAN</h1>
             <p>May 18, 2035, 7:00 PM | White Chapel</p>
-            <a href="#rsvp" class="btn">RSVP</a>
         </div>
     </header>
 
     <section id="story" class="section">
         <h2>Our Story</h2>
         <p>From our first meeting to this special day, our journey has been magical.</p>
+    </section>
+
+    <section id="wedding-details" class="section">
+        <h2>Wedding Details</h2>
+        <p><strong>Venue:</strong> White Chapel, Springfield</p>
+        <p><strong>Date:</strong> May 18, 2035</p>
+        <p><strong>Time:</strong> 7:00 PM</p>
+        <p>Join us for an evening of love, laughter, and celebration!</p>
     </section>
 
     <section id="gallery" class="section">
@@ -128,15 +107,6 @@
             <img src="image2.jpg" alt="Engagement Day">
             <img src="image3.jpg" alt="Couple Moment">
         </div>
-    </section>
-
-    <section id="rsvp" class="section">
-        <h2>RSVP</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <button type="submit" class="btn">Confirm Attendance</button>
-        </form>
     </section>
 
     <script>
