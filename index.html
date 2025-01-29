@@ -3,49 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
+    <title>Wedding Invitation | Anna & Ryan</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
             background: #f9f3e6;
             color: #333;
             margin: 0;
             padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 182, 193, 0.8);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
         }
-        header {
-            background: #ffb6c1;
-            padding: 20px;
-            border-radius: 10px;
+        nav ul {
+            list-style: none;
+            padding: 0;
         }
-        h1, h2 {
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
             margin: 0;
         }
-        .countdown, .gallery, .rsvp {
-            margin-top: 30px;
+        .hero p {
+            font-size: 1.5em;
+            margin: 10px 0;
         }
-        img {
-            width: 100px;
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: white;
+            color: #ff69b4;
+        }
+        .section {
+            padding: 50px 20px;
+        }
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .gallery-container img {
+            width: 200px;
             height: auto;
-            margin: 10px;
             border-radius: 10px;
         }
-        form {
-            margin-top: 20px;
-        }
-        input, button {
+        form input, form button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
             padding: 10px;
-            margin: 5px;
-            border: none;
             border-radius: 5px;
+            border: none;
         }
-        button {
+        form button {
             background: #ff69b4;
             color: white;
             cursor: pointer;
@@ -53,46 +99,55 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>You're Invited to Our Wedding</h1>
-            <h2>John & Jane</h2>
-            <p>Join us on <strong>December 15, 2025</strong></p>
-        </header>
-        
-        <section class="countdown">
-            <h3>Countdown to the Big Day</h3>
-            <div id="timer"></div>
-        </section>
-
-        <section class="gallery">
-            <h3>Our Journey</h3>
-            <img src="image1.jpg" alt="Couple Image 1">
-            <img src="image2.jpg" alt="Couple Image 2">
-            <img src="image3.jpg" alt="Couple Image 3">
-        </section>
-        
-        <section class="rsvp">
-            <h3>RSVP</h3>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <button type="submit">Confirm Attendance</button>
-            </form>
-        </section>
-    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+        </ul>
+    </nav>
     
+    <header id="home">
+        <div class="hero">
+            <h1>ANNA & RYAN</h1>
+            <p>May 18, 2035, 7:00 PM | White Chapel</p>
+            <a href="#rsvp" class="btn">RSVP</a>
+        </div>
+    </header>
+
+    <section id="story" class="section">
+        <h2>Our Story</h2>
+        <p>From our first meeting to this special day, our journey has been magical.</p>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+            <img src="image1.jpg" alt="Anna & Ryan">
+            <img src="image2.jpg" alt="Engagement Day">
+            <img src="image3.jpg" alt="Couple Moment">
+        </div>
+    </section>
+
+    <section id="rsvp" class="section">
+        <h2>RSVP</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit" class="btn">Confirm Attendance</button>
+        </form>
+    </section>
+
     <script>
-        function countdown() {
-            const weddingDate = new Date("December 15, 2025 00:00:00").getTime();
-            setInterval(function() {
-                const now = new Date().getTime();
-                const difference = weddingDate - now;
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                document.getElementById("timer").innerHTML = days + " days left!";
-            }, 1000);
-        }
-        countdown();
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
